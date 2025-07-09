@@ -1,0 +1,45 @@
+import { motion } from "framer-motion"
+
+const variants = {
+  open: {
+    transition: {
+      staggerChilren: 0.1,
+      staggerDirection: 1,
+    },
+  },
+  closed: {
+    transition: {
+      staggerChilren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+}
+
+const itemVariants = {
+  open: {
+    y: 0,
+    opacity: 1,
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+  },
+}
+
+const Links = () => {
+  const items = ["Home", "About Me" ,"Skills","Project"];
+  return (
+    <div className='links'>
+      {items.map(item => (
+        <motion.a href={`#${item}`} key={item}
+        variants={itemVariants} 
+        whileHover={{ scale: 1.1 }} 
+        whileTap={{ scale: 0.95 }} className="item">
+          {item}
+        </motion.a>
+      ))}
+    </div>
+  )
+}
+
+export default Links

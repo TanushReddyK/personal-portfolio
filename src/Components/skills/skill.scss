@@ -1,0 +1,141 @@
+@import "../../app.scss";
+
+.container {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Added to prevent scrollbars */
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 200vw;
+    height: 100%;
+    background-color: rgba(32, 30, 57, 0.6);
+    z-index: -1;
+}
+
+.title {
+    text-align: left;
+    width: 90%;
+    
+    p {
+        font-weight: bold;
+        font-size: 96px;
+        color: white;
+        letter-spacing: 10px;
+
+        &:hover {
+            color: orange;
+        }
+
+        @include mobile {
+            font-size: 36px; /* Reduce font size for mobile */
+            letter-spacing: 5px; /* Adjust letter spacing for mobile */
+        }
+    }
+}
+
+.exp-list {
+    margin-top: 190px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    width: 90%;
+
+    @include mobile {
+        margin-top: 50px; /* Reduce top margin for mobile */
+        gap: 20px; /* Reduce gap between items for mobile */
+        justify-content: center; /* Center items on mobile */
+    }
+}
+
+.exp-item {
+    flex: 0 0 48%;
+    max-width: 48%;
+
+    @include mobile {
+        flex: 0 0 100%; /* Full width on mobile */
+        max-width: 100%; /* Full width on mobile */
+    }
+
+    .exp-info {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 22px;
+            color: white;
+            opacity: 1;
+            animation: showText 0.8s 2s linear forwards;
+
+            @include mobile {
+                font-size: 16px; /* Reduce font size for mobile */
+                line-height: 20px; /* Adjust line height for mobile */
+            }
+        }
+    }
+
+    .progress {
+        margin-top: 7px;
+        height: 10px;
+        width: 100%;
+        background-color: #cdcdcd;
+        border-radius: 50px;
+        position: relative;
+
+        span {
+            transform: scale(0);
+            transform-origin: left;
+            animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+            height: 100%;
+            border-radius: 50px;
+            position: absolute;
+            background-color: #6ef549;
+            transition: 1s all;
+        }
+    }
+}
+
+@keyframes showText {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animate {
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Mobile styles using the @include mobile mixin */
+@include mobile {
+    .container {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .title {
+        text-align: center; /* Center text on mobile */
+    }
+
+    .exp-list {
+        margin-top: 100px; /* Adjust margin for mobile */
+    }
+
+    .exp-item {
+        margin-bottom: 20px; /* Add margin at the bottom for spacing */
+    }
+}

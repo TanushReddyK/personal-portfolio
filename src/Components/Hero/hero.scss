@@ -1,0 +1,147 @@
+@import "../../app.scss";
+
+.hero {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0c0c1d, #111132);
+
+    #tsparticles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0; // Ensure particles are behind the content
+    }
+
+    .wrapper {
+        max-width: 1366px;
+        height: 100%;
+        margin: auto;
+        position: relative;
+        z-index: 1; // Ensure wrapper content is above the particles
+
+        .textcontainer {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+
+            @include mobile {
+                height: auto;
+                width: 100%;
+                gap: 20px;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 30px;
+                color: rebeccapurple;
+                letter-spacing: 10px;
+            }
+
+            h1 {
+                font-size: 88px;
+
+                @include mobile {
+                    font-size: 36px;
+                    text-align: center;
+                }
+            }
+
+            .buttons {
+                display: flex;
+               
+
+                @include mobile {
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 10px; // Adjust gap between buttons in mobile view
+                }
+
+                button {
+                    padding: 20px;
+                    border: 1px solid white;
+                    border-radius: 10px;
+                    background-color: transparent;
+                    color: white;
+                    cursor: pointer;
+                    font-weight: 300;
+                    margin-left: 10px; // Reduced gap between buttons
+                }
+
+                .contact {
+                    background-color: #fff;
+                    color: #0c0c1d;
+                    
+                }
+
+                .download {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .arrow {
+                    width: 20px;
+                    height: 20px;
+                    color: white;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .imagecontainer {
+        height: 70%;
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        z-index: 1;
+
+        @include mobile {
+            height: auto;
+            width: 80%;
+            top: unset;
+            bottom: 0;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+
+        img {
+            height: 100%;
+
+            @include mobile {
+                width: 80%;
+                justify-content: center;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(18, 17, 33, 0.6); /* Dark blue color with transparency */
+        z-index: 1;
+    }
+
+    .sliding {
+        position: absolute;
+        font-size: 50vh;
+        bottom: -120px;
+        white-space: nowrap;
+        color: #d2d2dd10;
+        width: 50%;
+        font-weight: bold;
+    }
+}

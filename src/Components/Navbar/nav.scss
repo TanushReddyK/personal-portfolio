@@ -1,0 +1,41 @@
+@import "../../app.scss";
+
+.navbar {
+    position: relative;  // Fix the navbar at the top
+    top: 0;  // Position it at the top
+    left: 0;  // Position it at the left
+    width: 100%;  // Make it span the full width
+    height: 100px;  // Height of the navbar
+    background-color: #0c0c1d;  // Background color of the navbar (adjust as needed)
+    color: white;  // Text color
+    z-index: 10;  // Ensure navbar is on top of other elements
+     // Space between items
+
+    .wrapper {
+        max-width: 1366px;  // Maximum width of the navbar content
+        margin: auto;  // Center the content horizontally
+        display: flex;  // Flexbox layout for the wrapper
+        align-items: center;  // Center items vertically
+        justify-content: space-between;  // Space between items
+        height: 100%; 
+        
+        @include mobile{
+            justify-content: flex-end;
+            padding:20px
+        }
+        // Full height of the navbar
+
+        span {
+            font-weight: bold;  
+            
+            @include mobile{
+                display:none;
+            }
+        }
+
+        .social {
+            display: flex;  // Flexbox layout for social icons
+            gap: 20px;  // Space between social icons
+        }
+    }
+}

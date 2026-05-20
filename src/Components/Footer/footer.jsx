@@ -24,6 +24,9 @@ const Footer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setSuccess(null);
+
     emailjs
       .sendForm(
         'service_sz5mh1q',
@@ -32,13 +35,14 @@ const Footer = () => {
         'QT0oZMY0tXEwrGXYS'
       )
       .then(
-        (result) => {
+        () => {
           setSuccess(true);
           formRef.current.reset();
         },
         (error) => {
           setSuccess(false);
-          console.log(error.text);
+          // Useful debug info (shows in console)
+          console.log('EmailJS error:', error);
         }
       );
   };
@@ -67,7 +71,8 @@ const Footer = () => {
       </motion.div>
 
       <div className="formcontainer" ref={ref}>
-        {/* SVG section... (keep as-is or trim for brevity) */}
+        {/* Note: EmailJS Gmail_API can fail with 412 Invalid grant if the Gmail account token is expired.
+            Reconnect Gmail in EmailJS dashboard, or switch to another email provider/template. */}
 
         <motion.form
           ref={formRef}
@@ -99,6 +104,7 @@ const Footer = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           />
+
           <motion.button
             type="submit"
             initial={{ opacity: 0 }}

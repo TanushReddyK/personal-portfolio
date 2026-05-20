@@ -20,6 +20,51 @@ const Skill = () => {
         </div>
         <div className="exp-item">
           <div className='exp-info'>
+            <p>JAVASCRIPT</p>
+            <p>90%</p>
+          </div>
+          <div className='progress' data-percent="90">
+            <span className="line" style={{ width: "90%" }}></span>
+          </div>
+        </div>
+        <div className="exp-item">
+          <div className='exp-info'>
+            <p>ANGULAR JS</p>
+            <p>80%</p>
+          </div>
+          <div className='progress' data-percent="80">
+            <span className="line" style={{ width: "80%" }}></span>
+          </div>
+        </div>
+        <div className="exp-item">
+          <div className='exp-info'>
+            <p>MYSQL</p>
+            <p>85%</p>
+          </div>
+          <div className='progress' data-percent="85">
+            <span className="line" style={{ width: "85%" }}></span>
+          </div>
+        </div>
+        <div className="exp-item">
+          <div className='exp-info'>
+            <p>AZURE AI</p>
+            <p>80%</p>
+          </div>
+          <div className='progress' data-percent="80">
+            <span className="line" style={{ width: "80%" }}></span>
+          </div>
+        </div>
+        <div className="exp-item">
+          <div className='exp-info'>
+            <p>AI DEVELOPMENT</p>
+            <p>60%</p>
+          </div>
+          <div className='progress' data-percent="60">
+            <span className="line" style={{ width: "60%" }}></span>
+          </div>
+        </div>
+        <div className="exp-item">
+          <div className='exp-info'>
             <p>Python</p>
             <p>90%</p>
           </div>

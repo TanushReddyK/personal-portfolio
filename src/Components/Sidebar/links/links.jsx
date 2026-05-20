@@ -26,15 +26,21 @@ const itemVariants = {
   },
 }
 
-const Links = () => {
-  const items = ["Home", "About Me" ,"Skills","Project"];
+const Links = ({ onNavigate }) => {
+  const items = ["Home", "About Me" ,"Skills","Project","Demo"];
+
   return (
     <div className='links'>
       {items.map(item => (
-        <motion.a href={`#${item}`} key={item}
-        variants={itemVariants} 
-        whileHover={{ scale: 1.1 }} 
-        whileTap={{ scale: 0.95 }} className="item">
+        <motion.a
+          href={`#${item}`}
+          key={item}
+          variants={itemVariants}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="item"
+          onClick={() => onNavigate?.()}
+        >
           {item}
         </motion.a>
       ))}
@@ -43,3 +49,4 @@ const Links = () => {
 }
 
 export default Links
+  

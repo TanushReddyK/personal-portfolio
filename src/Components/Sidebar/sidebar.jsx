@@ -7,6 +7,9 @@ import "./sidebar.scss";
 const Sidebar = () => {
     const [open, setOpen] = useState(false);
 
+    const handleNavigate = () => setOpen(false);
+
+
     const variants = {
         open: {
             clipPath: "circle(1200px at 50px 50px)",
@@ -29,7 +32,7 @@ const Sidebar = () => {
     return (
         <motion.div className="sidebar" initial="closed" animate={open ? "open" : "closed"}>
             <motion.div className="bg" variants={variants}>
-                <Links /> 
+                <Links onNavigate={handleNavigate} /> 
             </motion.div>
             <ToggleButton setOpen={setOpen} open={open} /> 
         </motion.div>

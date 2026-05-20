@@ -5,8 +5,10 @@ import Nav from "./Components/Navbar/Nav";
 import Parallex from "./Components/parallex/Parallex";
 import Project from "./Components/Projects/Project";
 import Skill from "./Components/skills/Skill";
+import DemoLinks from "./Components/DemoLinks/DemoLinks";
 import "./app.scss";
 import Footer from "./Components/Footer/footer";
+
 
 const App = () => {
   return (
@@ -31,7 +33,12 @@ const App = () => {
         <Parallex type="project" />
       </section>
         <Project />
-      <section><Footer/></section>
+
+      <section id="Demo">
+        <DemoLinks />
+      </section>
+
+      <section id="Contact"><Footer/></section>
       
       
     

@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import ParticlesBackground from "./particles"; // Adjusted import path if necessary
 import "./hero.scss";
-import profile from "./profile.jpg";
+import profile from "./profile.png";
+
 import { ArrowDownTrayIcon } from '@heroicons/react/24/solid';
 import { motion } from "framer-motion";
 import Footer from "../Footer/footer"; // Adjusted import path if necessary
@@ -30,7 +31,7 @@ const slidervariants = {
     transition: {
       repeat: Infinity,
       repeatType: "mirror",
-      duration: 20,
+      duration: 15,
     },
   },
 };
@@ -39,13 +40,16 @@ const Hero = () => {
   const footerRef = useRef(null);
 
   const handleContactScroll = () => {
-    footerRef.current.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById("Contact");
+    el?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleDownload = () => {
-    window.open("/Final Resume.pdf", "_blank");
-    // Replace "/Final Resume.pdf" with the actual path to your resume file
-  };
+  window.open(
+    "https://drive.google.com/uc?export=download&id=1HupF1i12eQlQgfug7h5bOrGSzaJ59MAu",
+    "_blank"
+  );
+};
 
   return (
     <div className="hero">
@@ -53,10 +57,14 @@ const Hero = () => {
       <div className="wrapper">
         <motion.div className="textcontainer" variants={textvariants} initial="initial" animate="animate">
           <motion.h2 variants={textvariants}>Tanush Reddy K</motion.h2>
-          <motion.h1 variants={textvariants}>Web And Python developer</motion.h1>
+          <motion.h2 variants={textvariants}>AI/ML Engineer & Full-Stack Developer</motion.h2>
+          <motion.p variants={textvariants} className="desc">
+  Building AI-powered applications using Generative AI, NLP, Computer Vision, and modern full-stack technologies.
+</motion.p>
+
           <motion.div variants={textvariants} className="buttons">
             <motion.button variants={textvariants} className="download" onClick={handleDownload}>
-              <p>Download Cv</p>
+              <p>Download Resume</p>
               <ArrowDownTrayIcon className='arrow'/>
             </motion.button>
             <motion.button variants={textvariants} onClick={handleContactScroll} className="contact">Contact Me</motion.button>
@@ -71,8 +79,8 @@ const Hero = () => {
         <img src={profile} alt="Hero" />
       </div>
       
-      {/* Render Footer component with ref */}
-      <Footer ref={footerRef} />
+      <section ref={footerRef} />
+      <Footer />
     </div>
   );
 };
